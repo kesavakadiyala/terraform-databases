@@ -2,7 +2,7 @@ resource "aws_instance" "instance" {
   ami           = data.aws_ami.ami.id
   instance_type = var.INSTANCE_TYPE
   vpc_security_group_ids = [aws_security_group.allow-db.id]
-  subnet_id = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNETS[0]
+  subnet_id = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET[0]
   tags = {
     Name = "${var.component}-${var.ENV}"
   }
