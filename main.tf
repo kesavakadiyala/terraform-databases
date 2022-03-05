@@ -6,7 +6,7 @@ module "AllDB" {
   ENV = var.ENV
   INSTANCE_TYPE = var.INSTANCE_TYPE
   KEYPAIR_NAME = var.KEYPAIR_NAME
-  component   = element(var.component, count.index)
+  component   = element(var.DB, count.index)
   PORT        = element(var.PORTS, count.index)
 }
 
