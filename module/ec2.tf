@@ -56,3 +56,11 @@ resource "aws_security_group" "allow-db" {
     Name = "Allow-${var.component}-${var.ENV}"
   }
 }
+
+resource "aws_route53_record" "database" {
+  name                = "${var.component}-${var.ENV}"
+  type                = "A"
+  zone_id             = data.terraform_remote_state.vpc.outputs.HOSTED_ZONE_ID
+  ttl                 = "300"
+  records             = [aws_instance.instance.private_ip]
+}
