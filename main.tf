@@ -1,9 +1,12 @@
-module "mongodb" {
-  source = "./mongodb"
+module "AllDB" {
+  count = length(var.DB)
+  source = "./module"
   bucket = var.bucket
   key = var.key
   ENV = var.ENV
   INSTANCE_TYPE = var.INSTANCE_TYPE
   KEYPAIR_NAME = var.KEYPAIR_NAME
-  component   = var.component
+  component   = element(var.component, count.index)
+  PORT        = element(var.PORTS, count.index)
 }
+

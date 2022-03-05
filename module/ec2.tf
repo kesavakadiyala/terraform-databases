@@ -32,8 +32,8 @@ resource "aws_security_group" "allow-db" {
   vpc_id = data.terraform_remote_state.vpc.outputs.VPC_ID
   ingress {
     description = "TLS from VPC"
-    from_port   = 27017
-    to_port     = 27017
+    from_port   = var.PORT
+    to_port     = var.PORT
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
