@@ -1,6 +1,6 @@
 bucket          = "roboshop-vpc"
 key             = "frontend/dev/terraform.tfstate"
 ENV             = "dev"
-INSTANCE_TYPE      = "t2.micro"
+INSTANCE_TYPE      = "t3.small"
 KEYPAIR_NAME       = "devops"
 component          = "mongodb"
