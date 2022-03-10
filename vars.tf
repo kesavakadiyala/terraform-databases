@@ -1,7 +1,9 @@
 variable "bucket" {}
 variable "key" {}
 variable "ENV" {}
-variable "component" {}
+variable "component" {
+  default = var.DB
+}
 variable "INSTANCE_TYPE" {}
 variable "KEYPAIR_NAME" {}
 variable "DB" {
